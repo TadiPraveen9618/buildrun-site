@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Thank you | BuildRun Digital</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<!-- STEP G: same GTM snippet as the home page -->
+<script>
+// generate_lead fires here (only after a real form submit)
+window.dataLayer = window.dataLayer || [];
+(function(){
+  var p="",n="",s="";
+  try{p=sessionStorage.getItem("lead_phone")||"";n=sessionStorage.getItem("lead_name")||"";s=sessionStorage.getItem("lead_service")||"";}catch(e){}
+  if(p){
+    window.dataLayer.push({event:"generate_lead",lead_service:s,user_data:{phone_number:p,first_name:(n.split(" ")[0]||"")}});
+    try{sessionStorage.removeItem("lead_phone");}catch(e){}
+  }
+})();
+</script>
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="../">Build<span>Run.</span></a></div></header>
+<main><section class="hero" style="min-height:70vh;display:flex;align-items:center"><div class="wrap" style="max-width:760px">
+ <span class="tag">RECEIVED</span>
+ <h1 style="font-size:clamp(36px,7vw,60px)">Got it. <span class="lime">We'll WhatsApp you</span> within a few hours.</h1>
+ <p class="lead" style="margin:18px 0 26px">Working hours: 10 AM–7 PM, Mon–Sat. Want a faster reply? Message us now.</p>
+ <div class="ctas">
+  <a class="btn btn-wa js-wa" data-loc="thankyou" href="https://wa.me/919618597379?text=Hi%20BuildRun%2C%20I%20just%20filled%20the%20form%20on%20your%20website." target="_blank" rel="noopener">💬 Message on WhatsApp</a>
+  <a class="btn btn-ghost" href="../">← Back to site</a>
+ </div>
+</div></section></main>
+<script>
+document.addEventListener("click",function(e){var a=e.target.closest("a.js-wa");if(a)window.dataLayer.push({event:"whatsapp_click",click_location:"thankyou"});});
+</script>
+</body>
+</html>
