@@ -16,10 +16,10 @@
 // generate_lead fires here (only after a real form submit)
 window.dataLayer = window.dataLayer || [];
 (function(){
-  var p="",n="",s="";
-  try{p=sessionStorage.getItem("lead_phone")||"";n=sessionStorage.getItem("lead_name")||"";s=sessionStorage.getItem("lead_service")||"";}catch(e){}
+  var p="",n="",s="",id="";
+  try{p=sessionStorage.getItem("lead_phone")||"";n=sessionStorage.getItem("lead_name")||"";s=sessionStorage.getItem("lead_service")||"";id=sessionStorage.getItem("lead_event_id")||"";}catch(e){}
   if(p){
-    window.dataLayer.push({event:"generate_lead",lead_service:s,user_data:{phone_number:p,first_name:(n.split(" ")[0]||"")}});
+    window.dataLayer.push({event:"generate_lead",lead_service:s,event_id:id,user_data:{phone_number:p,first_name:(n.split(" ")[0]||"")}});
     try{sessionStorage.removeItem("lead_phone");}catch(e){}
   }
 })();

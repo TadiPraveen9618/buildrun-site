@@ -49,9 +49,11 @@
     var data = new URLSearchParams(new FormData(form));
     data.set("phone", "+91" + phone);
     data.delete("website");
+    var eid = "L" + Date.now() + Math.random().toString(36).slice(2, 8); // shared event id: pixel + CAPI dedup
+    data.set("event_id", eid);
 
     // Hashed-ready values for enhanced conversions / CAPI (picked up on the thank-you page)
-    try { sessionStorage.setItem("lead_phone", "+91" + phone); sessionStorage.setItem("lead_name", name); sessionStorage.setItem("lead_service", form.service.value); } catch (err) {}
+    try { sessionStorage.setItem("lead_phone", "+91" + phone); sessionStorage.setItem("lead_name", name); sessionStorage.setItem("lead_service", form.service.value); sessionStorage.setItem("lead_event_id", eid); } catch (err) {}
 
     var go = function () { location.href = "thank-you/"; };
     if (!window.LEAD_ENDPOINT || window.LEAD_ENDPOINT.indexOf("http") !== 0) { go(); return; }
